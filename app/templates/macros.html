@@ -1,0 +1,20 @@
+{% macro displaySources(source_results_list) %} 
+{% for source in sources %}
+
+<div class="container">
+    <h1>News</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{headlines.image}}" alt="#">
+        </div>
+    </div>
+    <div class="card-body">
+        <small class="card-text">{{headlines.author }} </small>
+        <p class="card-text">{{headlines.description}} </p>
+        <a href="{{headlines.url}}"> Continue reading</a>
+        <div class="card-footer">
+            <small>Publish date:{{headlines.time}}</small>
+        </div>
+    </div>
+</div>
+{%endfor%} {% endmacro %}
