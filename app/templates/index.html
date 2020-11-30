@@ -6,6 +6,12 @@
     <title>News Flash</title>
 </head>
 <body>
-<h1> {{ message }} </h1>
+    
+        <h3> sources</h3>
+         <ul>
+            {% for source in sources %}
+                <li>{{ source.name}}</li>
+            {% endfor %}
+        </ul>
 </body>
 </html>
