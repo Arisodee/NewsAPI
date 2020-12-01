@@ -13,7 +13,7 @@ base_url = None
 articles_url = None
 
 def configure_request(app):
-
+	
 	global api_key,base_url,articles_url
 	api_key = app.config['NEWS_API_KEY'] 
 	base_url = app.config['NEWS_API_SOURCE_URL']
@@ -59,7 +59,7 @@ def process_sources(sources_list):
 		country = source_item['country']
 
 
-		sources_object = Sources(id,name,description,url,category,country,language)
+		sources_object = Source(id,name,description,url,category,language,country)
 		sources_results.append(sources_object)
 
 
