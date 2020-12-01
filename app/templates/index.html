@@ -5,62 +5,18 @@
 
 {% block styles%}
 {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link rel="stylesheet" type= "text/css" href="{{url_for('static',filename='css/index.css')}}">
+
 {% endblock %}
 <!-- Content block -->
 {% block content%}
 <div class="container">
-    <!-- Entertainment News Section  -->
-        
-    <h3>Entertainment News</h3>
-
+ 
+    <h1>News Sources</h1>
     <ul>
-    {{ macro.displaySourceList(entertainment_sources)}}
-    </ul>
-
-    <!-- General News Section  -->
-    <h3>General News</h3>
-    <ul>
-        {{ macro.displaySourceList(general_sources)}}
+        {{ macro.displaySourceList(general)}}
     </ul>
         
-
-    <!-- Health News Section  -->
-    <h3>Health News</h3>
-    <ul>
-    {{ macro.displaySourceList(health_sources)}}
-    </ul>
-
-    
-
-    <!-- Business News Section  -->
-    <h3>Business News</h3>
-    <ul>
-        {{ macro.displaySourceList(business_sources)}}
-    </ul>
-    
-
-    <!-- Technology News Section  -->
-        
-    <h3>Technology News</h3>
-    <ul>
-        {{ macro.displaySourceList(technology_sources)}}
-    </ul>
-    
-
-    <!-- Science News Section  -->
-    <h3>Science News</h3>
-    <ul>
-         {{ macro.displaySourceList(science_sources)}}
-    </ul>
-   
-        
-    <!-- Sports News Section  -->
-        
-    <h3>Sports News</h3>
-    <ul>
-        {{macro.displaySourceList(sports_sources)}}
-    </ul>
     
 </div>
 

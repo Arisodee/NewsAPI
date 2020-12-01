@@ -1,29 +1,31 @@
 {% extends 'bootstrap/base.html'%}
-<!-- Navbar block  --> 
-{% block navbar %}
-    {% include 'navbar.html' %}
-{% endblock %}
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to News Flash </title>
-    {% endif %}
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title> Welcome to News Flash </title>
+        
+        {% endif %}
+        <!-- Navbar block  --> 
+        {% block navbar %}
+        {% include 'navbar.html' %}
+        {% endblock %}
+    </head>
 
-<body>
-    <!-- Content block -->
+    <body>
+        <!-- Content block -->
 
-    {% block content %}
+        {% block content %}
 
-    {% endblock%}
+        {% endblock%}
 
-</body>
+    </body>
 
 </html>
