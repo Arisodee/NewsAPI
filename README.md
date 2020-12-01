@@ -1,8 +1,8 @@
-### NEWS-API
+### News-API
 
 ## Author
 
-Atiso Okanga
+Ariso Okanga
 
 ## Description
 
