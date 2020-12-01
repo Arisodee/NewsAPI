@@ -13,12 +13,12 @@ def index():
 	title = "News"
 
 	return render_template('index.html', title=title, general=general_sources)
-		
+
 
 @main.route('/articles/<id>')
 def articles(id):
 	'''
-	view articles page
+	view articles page function that returns the various article details page and its data
 	'''
 	articles = get_articles(id)
 	title = f'{id}'

@@ -66,35 +66,43 @@ def process_sources(sources_list):
 	return sources_results
 
 def get_articles(id):
-  '''
+	'''
 	Function that processes the articles and returns a list of articles objects
 	'''
+	get_articles_url= 'https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey={}'.format(id,api_key)
+	print(get_articles_url)	
+	with urllib.request.urlopen(get_articles_url) as url:
+		articles_results= json.loads(url.read())
 		
-  get_articles_url = articles_url.format(id,api_key)
 
-  with urllib.request.urlopen(get_articles_url) as url:
-			articles_results = json.loads(url.read())
+		articles_object = None
 
-			articles_object = None
-			if articles_results['articles']:
-				articles_object = process_articles(articles_results['articles'])
+		if articles_results['articles']:
+			articles_object=process_articles(articlesl_results['articles'])
 
-			return articles_object
+	return articles_object		
+		
 
 def process_articles(articles_list):
-  
-	articles_object = []
-	for article_item in articles_list:
-		# id = article_item['id']
-		author = article_item['author']
-		title = article_item['title']
-		description = article_item['description']
-		url = article_item['url']
-		image = article_item['urlToImage']
-		date = article_item['publishedAt']
-		
-		if image:
-			articles_result = Articles(id,author,title,description,url,image,date)
-			articles_object.append(articles_result)	
+    '''
+    function that processes the json files of articles from the api key
+    '''
+    articles_object = []
+    for article in articles_list:
+        author = article.get('author')
+        description = article.get('description')
+        date = article.get('publishedAt')
+        url = article.get('urlToImage')
+        image = article.get('url')
+        title = article.get ('title')
+        content= article.get('content')
+        if url:
+            article_objects = Article(author,description,date,image,url,title,content)
+            articles_object.append(articles_result)
 
-	return articles_object
+    return articles_object
+
+
+
+
+        
