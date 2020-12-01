@@ -29,7 +29,7 @@ This is an application that allows users to catch up with news missed on TV.
         $ chmod +x start.sh
         $ ./start.sh
 
-## Technology used
+## Technologies used
 
 * Python3.6
 * Flask
