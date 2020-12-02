@@ -4,11 +4,12 @@
 <div class="row">
 
     {% for sources in source_row %}
+     
     <div class="col-md-6">
         
         <div class="card">
             <div class="card-title" style="font-size: 28px;">
-                <a href="/sources/{{sources.id}}">
+                <a href="{{sources.url}}">
                     {{ sources.name}}
                 </a>
             </div>
@@ -17,13 +18,12 @@
                     {{ sources.description |truncate(150)}}
 
                 </p>
-                <a href="/sources/{{sources.id}}" class="btn btn-primary text-center" target="_blank">Check out
+                <a href="{{sources.url}}" class="btn btn-primary text-center" target="_blank">Check out
                     {{sources.name}}</a>
             </div>
         </div>
     </div>
     {% endfor %}
-
 </div>
 {% endfor %}
 

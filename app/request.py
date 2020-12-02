@@ -70,37 +70,47 @@ def get_articles(id):
 	Function that processes the articles and returns a list of articles objects
 	'''
 	get_articles_url= 'https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey={}'.format(id,api_key)
-	print(get_articles_url)	
+		
 	with urllib.request.urlopen(get_articles_url) as url:
-		articles_results= json.loads(url.read())
+		articles_details_data = url.read()
+		articles_details_response= json.loads(articles_details_data)
 		
 
-		articles_object = None
+		articles_results = None
 
-		if articles_results['articles']:
-			articles_object=process_articles(articlesl_results['articles'])
+		if articles_details_response:
+			author = articles_details_response.get('author')
+			description = articles_details_response('description')
+			date = articles_details_response('publishedAt')
+			url = articles_details_response('urlToImage')
+			image = articles_details_response('url')
+			title = articles_details_response('title')
+			content = articles_details_response('content')
+        	
+			articles_results = Article(author,description,date,image,url,title,content)
 
-	return articles_object		
+
+	return articles_results		
 		
 
 def process_articles(articles_list):
     '''
     function that processes the json files of articles from the api key
     '''
-    articles_object = []
-    for article in articles_list:
-        author = article.get('author')
-        description = article.get('description')
-        date = article.get('publishedAt')
-        url = article.get('urlToImage')
-        image = article.get('url')
-        title = article.get ('title')
-        content= article.get('content')
+    articles_results = []
+    for article_item in articles_list:
+        author = article_item.get('author')
+        description = article_item.get('description')
+        date = article_item.get('publishedAt')
+        url = article_item.get('urlToImage')
+        image = article_item.get('url')
+        title = article_item.get ('title')
+        content= article_item.get('content')
         if url:
-            article_objects = Article(author,description,date,image,url,title,content)
-            articles_object.append(articles_result)
+            articles_object = Article(author,description,date,image,url,title,content)
+            articles_results.append(articles_object)
 
-    return articles_object
+    return articles_results
 
 
 
